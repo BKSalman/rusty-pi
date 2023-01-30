@@ -13,19 +13,7 @@ pub extern "C" fn _start() -> ! {
 
     Uart::send_string("\n\nDone\n");
 
-    // GPIO::set_func(21, GPFuncSel::Output);
     loop {
-        // GPIO::set(21);
-
-        // for _ in 0..50000 {
-        //     unsafe { asm!("nop") }
-        // }
-
-        // GPIO::clear(21);
-
-        // for _ in 0..50000 {
-        //     unsafe { asm!("nop") }
-        // }
         Uart::send(Uart::recv());
     }
 }
