@@ -33,11 +33,11 @@ impl GPIO {
 
         let pinnum = pin % 10;
 
-        mask = mask << pinnum * 3;
+        mask <<= pinnum * 3;
 
-        val = val & !(mask);
+        val &= !(mask);
 
-        val |= (func as u32) << pinnum * 3;
+        val |= (func as u32) << (pinnum * 3);
 
         unsafe {
             core::ptr::write_volatile(fsel_reg as *mut u32, val);
