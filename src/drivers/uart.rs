@@ -446,7 +446,7 @@ impl PL011Uart {
 //------------------------------------------------------------------------------
 use synchronization::interface::Mutex;
 
-impl crate::drivers::interface::DeviceDriver for PL011Uart {
+impl crate::drivers::driver_manager::interface::DeviceDriver for PL011Uart {
     fn compatible(&self) -> &'static str {
         Self::COMPATIBLE
     }

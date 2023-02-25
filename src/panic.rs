@@ -48,11 +48,11 @@ fn panic(info: &PanicInfo) -> ! {
     println!(
         "Kernel panic!\n\n\
         Panic location:\n      File '{}', line {}, column {}\n\n\
-        {}",
+        ",
         location,
         line,
         column,
-        info.message().unwrap_or(&format_args!("")),
+        // info.message().unwrap_or(&format_args!("")),
     );
 
     loop {

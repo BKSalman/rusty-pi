@@ -165,7 +165,7 @@ impl GPIO {
     }
 }
 
-impl crate::drivers::interface::DeviceDriver for GPIO {
+impl crate::drivers::driver_manager::interface::DeviceDriver for GPIO {
     fn compatible(&self) -> &'static str {
         Self::COMPATIBLE
     }

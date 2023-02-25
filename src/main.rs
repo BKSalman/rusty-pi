@@ -1,13 +1,10 @@
 #![no_std]
 #![no_main]
 
-use core::panic::PanicInfo;
-
 use rusty_pi::{
     console,
     drivers::{self, driver_manager},
     println,
-    uart::Uart,
 };
 
 #[no_mangle]
@@ -28,19 +25,19 @@ pub extern "C" fn _start() -> ! {
         env!("CARGO_PKG_NAME"),
         env!("CARGO_PKG_VERSION")
     );
-    println!("[1] Booting on: {}", bsp::board_name());
+    println!("[1] Booting on: Raspberry Pi 3");
 
     println!("[2] Drivers loaded:");
     driver_manager::driver_manager().enumerate();
 
-    println!("[3] Chars written: {}", console().chars_written());
+    println!("[3] Chars written: {}", console::console().chars_written());
     println!("[4] Echoing input now");
 
     // Discard any spurious received characters before going into echo mode.
     console::console().clear_rx();
 
     loop {
-        let c = console().read_char();
-        console().write_char(c);
+        let c = console::console().read_char();
+        console::console().write_char(c);
     }
 }
