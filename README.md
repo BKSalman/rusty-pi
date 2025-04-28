@@ -1,6 +1,6 @@
 # Rusty PI
 
-A Raspberry PI baremetal project to learn embedded programming with Rust
+An experimental Raspberry PI baremetal project to learn embedded programming with Rust
 
 
 # Current features
